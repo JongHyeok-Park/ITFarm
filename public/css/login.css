@@ -1,0 +1,16 @@
+div {
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #9dffa9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-inner {
+    font-weight: 700;
+}

@@ -1,3 +1,6 @@
+const CLIENT_ID = config.clientId;
+const SERVER_URL = config.serverUrl;
+
 function setCookie(cookieName, cookieValue, expirationDays) {
     const date = new Date();
     date.setTime(date.getTime() + (expirationDays * 60 * 1000)); // 유효 기간을 분 단위로 설정
@@ -29,20 +32,26 @@ function deleteCookie(name) {
     }
 }
 
-let loginCheck = new Promise((resolve, reject) => {
-    if (!!getCookie('AccessToken')) {
-        $.ajax({
-            url: ServerURL + '/api/all/check',
-            type: 'GET',
-            headers: {
-                "Authorization": 'Bearer ' + getCookie('AccessToken')
-            }
-        }).then((res) => {
-            resolve(res);
-        }).catch((err) => {
+async function loginCheck() {
+    let result
+
+    let promise = new Promise((resolve, reject) => {
+        if (!!getCookie('AccessToken')) {
+            $.ajax({
+                url: SERVER_URL + '/api/auth/check',
+                type: 'GET',
+                headers: {
+                    "Authorization": 'Bearer ' + getCookie('AccessToken')
+                }
+            }).then((res) => {
+                resolve(res);
+            }).catch((err) => {
+                reject();
+            })
+        } else {
             reject();
-        })
-    } else {
-        reject();
-    }
-})
+        }
+    })
+
+    result = await promise
+}

@@ -1,0 +1,34 @@
+div {
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #9dffa9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-inner {
+    font-weight: 700;
+}
+
+.login-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#login {
+    padding: 0;
+    margin: 5px 0;
+}
+
+#login-guest {
+    width: 100%;
+    font-size: 14px;
+    padding: 9px 12px;
+    margin: 5px 0;
+    background-color: white;
+}

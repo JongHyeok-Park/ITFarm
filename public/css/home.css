@@ -26,4 +26,8 @@
     background-color: white;
     box-shadow: 5px 5px 5px #777;
     transition: all 1s;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
